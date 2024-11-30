@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>DayQuest</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+
+    {% block styles %}
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    <link href="{{ url_for('static', filename='css/styles.css') }}" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    {% endblock %}
+</head>
+<body>
+
+<div class="content-wrapper">
+    <div class="navbar-color px-3 py-2 border-bottom">
+        <div class="container">
+            <div class="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start">
+                {% if not current_user.is_authenticated %}
+                    <a href="{{ url_for('home') }}" class="d-flex align-items-center my-2 my-lg-0 me-lg-auto text-white text-decoration-none">
+                        <img src="{{ url_for('static', filename='images/sun.svg') }}" width="50" height="40" alt="Icono">
+                        <span class="fs-4">DaySteps</span>
+                    </a>
+                {% else %}
+                    <a href="{{ url_for('home') }}" class="d-flex align-items-center my-2 my-lg-0 me-lg-auto text-white text-decoration-none">
+                        <img src="{{ url_for('static', filename='images/sun.svg') }}" width="50" height="40" alt="Icono">
+                        <span class="fs-4">DaySteps of {{ current_user.name }}</span>
+                    </a>
+                {% endif %}
+                <ul class="nav col-12 col-lg-auto my-2 justify-content-center my-md-0 text-small">
+                    <li>
+                        <a href="{{ url_for('home') }}" class="nav-link text-white">Home</a>
+                    </li>
+                    {% if not current_user.is_authenticated %}
+                    <li>
+                        <a href="{{ url_for('login') }}" class="nav-link text-white">Login</a>
+                    </li>
+                    {% else %}
+                    <li>
+                        <a href="{{ url_for('mytodo') }}" class="nav-link text-white">Dashboard</a>
+                    </li>
+                    <li>
+                        <a href="{{ url_for('logout') }}" class="nav-link text-white">Log Out</a>
+                    </li>
+                    {% endif %}
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    {% block body %}
+    {% endblock %}
+</div>
+
+<footer class="footer border-top">
+    <div class="card text-center">
+        <div class="navbar-color card-footer">
+            <div class="mt-2">
+                <a href="https://www.linkedin.com/in/jordi-soriano-reos/" target="_blank" class="btn btn-outline-light mx-2">
+                    <i class="fab fa-linkedin"></i>
+                </a>
+                <a href="https://github.com/jordisorianoreos" target="_blank" class="btn btn-outline-light mx-2">
+                    <i class="fab fa-github"></i>
+                </a>
+            </div>
+            <p class="my-2 fs-6 text-white">Copyright © Jordi's DaySteps 2024</p>
+        </div>
+    </div>
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+</body>
+</html>

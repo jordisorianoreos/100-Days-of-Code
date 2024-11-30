@@ -1,0 +1,61 @@
+{% extends 'base.html' %}
+{% block title %}{{ product.name }}{% endblock %}
+
+{% block content %}
+<div class="container my-5">
+    <div class="row">
+        <div class="col-md-6">
+            <img src="{{ product.image_url }}" class="img-fluid" alt="{{ product.name }}" style="max-height: 70vh; width: auto;">
+        </div>
+        <div class="col-md-6">
+            <h1>{{ product.name }}</h1>
+            <hr>
+            <h3>{{ product.price }}€</h3>
+            <br>
+            <p><strong>Description:</strong> {{ product.description }}</p>
+            <p><strong>Available:</strong> {{ product.stock }}</p>
+
+            <form method="POST" action="{{ url_for('product', product_id=product.id) }}">
+                <label for="quantity" class="form-label"><strong>Units:</strong></label>
+                <div class="input-group mb-3" style="width: 150px;">
+                    <span class="input-group-btn">
+                        <button class="btn btn-outline-secondary" type="button" id="button-minus">-</button>
+                    </span>
+                    <input type="number" min="1" max="{{ product.stock }}" class="form-control text-center" name="quantity" id="quantity" value="1" style="width: 50px; border: none; text-align: center; -moz-appearance: textfield;">
+                    <span class="input-group-btn">
+                        <button class="btn btn-outline-secondary" type="button" id="button-plus">+</button>
+                    </span>
+                </div>
+                <button type="submit" class="btn btn-primary">Add to Cart</button>
+            </form>
+        </div>
+    </div>
+</div>
+
+<style>
+    input[type=number]::-webkit-inner-spin-button,
+    input[type=number]::-webkit-outer-spin-button {
+        -webkit-appearance: none;
+        margin: 0;
+    }
+</style>
+
+<script>
+    document.getElementById('button-minus').addEventListener('click', function() {
+        var quantityInput = document.getElementById('quantity');
+        var currentValue = parseInt(quantityInput.value);
+        if (currentValue > 1) {
+            quantityInput.value = currentValue - 1;
+        }
+    });
+
+    document.getElementById('button-plus').addEventListener('click', function() {
+        var quantityInput = document.getElementById('quantity');
+        var currentValue = parseInt(quantityInput.value);
+        var maxValue = parseInt(quantityInput.max);
+        if (currentValue < maxValue) {
+            quantityInput.value = currentValue + 1;
+        }
+    });
+</script>
+{% endblock %}

@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+{% block title %}My Ecommerce{% endblock %}
+
+{% block content %}
+<div class="jumbotron text-center">
+    <div class="container">
+        <h1 class="display-4">🛒 Welcome to MyTech 🛍️</h1>
+        <p class="lead">Discover the best tech products at unbeatable prices</p>
+        <hr class="my-4">
+        <p>Explore our collection of products with detailed information and special offers.</p>
+        <a class="btn btn-warning btn-lg" href="{{ url_for('products') }}" role="button">See Products</a>
+    </div>
+</div>
+{% endblock %}

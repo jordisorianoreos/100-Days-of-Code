@@ -1,0 +1,94 @@
+{% extends 'base.html' %}
+{% block title %}Products{% endblock %}
+
+{% block content %}
+    <h1 class="text-center my-4">Choose Products</h1>
+    <div class="container">
+        <!-- Tabs -->
+        <ul class="nav nav-tabs" id="productTabs" role="tablist">
+            <li class="nav-item" role="presentation">
+                <a class="nav-link active" id="all-products-tab" data-bs-toggle="tab" href="#all-products" role="tab" aria-controls="all-products" aria-selected="true">All Products</a>
+            </li>
+            <li class="nav-item" role="presentation">
+                <a class="nav-link" id="laptops-tab" data-bs-toggle="tab" href="#laptops" role="tab" aria-controls="laptops" aria-selected="false">Laptops</a>
+            </li>
+            <li class="nav-item" role="presentation">
+                <a class="nav-link" id="smartphones-tab" data-bs-toggle="tab" href="#smartphones" role="tab" aria-controls="smartphones" aria-selected="false">Smartphones</a>
+            </li>
+            <li class="nav-item" role="presentation">
+                <a class="nav-link" id="headphones-tab" data-bs-toggle="tab" href="#headphones" role="tab" aria-controls="headphones" aria-selected="false">Headphones</a>
+            </li>
+            <li class="nav-item" role="presentation">
+                <a class="nav-link" id="tablets-tab" data-bs-toggle="tab" href="#tablets" role="tab" aria-controls="tablets" aria-selected="false">Tablets</a>
+            </li>
+            <li class="nav-item" role="presentation">
+                <a class="nav-link" id="other-tab" data-bs-toggle="tab" href="#other" role="tab" aria-controls="other" aria-selected="false">Other</a>
+            </li>
+        </ul>
+
+        <div style="margin-top: 20px;"></div>
+
+        <!-- Product Cards -->
+        <div class="tab-content" id="productTabsContent">
+            <div class="tab-pane fade show active" id="all-products" role="tabpanel" aria-labelledby="all-products-tab">
+                <div class="row">
+                    {% for product in products %}
+                        <div class="col-md-3">
+                            <div class="card mb-4">
+                                <div class="img-container" style="overflow: hidden; width: 100%; height: 0; padding-top: 56.1%; position: relative;">
+                                    <img src="{{ product.image_url }}" class="card-img-top" alt="{{ product.name }}" style="position: absolute; top: 50%; left: 50%; width: auto; height: 100%; transform: translate(-50%, -50%);">
+                                </div>
+                                <div class="card-body text-center">
+                                    <h5 class="card-title">{{ product.name }}</h5>
+                                    <p class="card-text">{{ product.price }}€</p>
+                                    <a href="{{ url_for('product', product_id=product.id) }}" class="btn btn-primary">See More</a>
+                                </div>
+                            </div>
+                        </div>
+                    {% endfor %}
+                </div>
+            </div>
+
+            {% for category in ['Laptops', 'Smartphones', 'Headphones', 'Tablets'] %}
+                <div class="tab-pane fade" id="{{ category|lower }}" role="tabpanel" aria-labelledby="{{ category|lower }}-tab">
+                    <div class="row">
+                        {% for product in products if product.category == category %}
+                            <div class="col-md-3">
+                                <div class="card mb-4">
+                                    <div class="img-container" style="overflow: hidden; width: 100%; height: 0; padding-top: 56.1%; position: relative;">
+                                        <img src="{{ product.image_url }}" class="card-img-top" alt="{{ product.name }}" style="position: absolute; top: 50%; left: 50%; width: auto; height: 100%; transform: translate(-50%, -50%);">
+                                    </div>
+                                    <div class="card-body text-center">
+                                        <h5 class="card-title">{{ product.name }}</h5>
+                                        <p class="card-text">{{ product.price }}€</p>
+                                        <a href="{{ url_for('product', product_id=product.id) }}" class="btn btn-primary">See More</a>
+                                    </div>
+                                </div>
+                            </div>
+                        {% endfor %}
+                    </div>
+                </div>
+            {% endfor %}
+
+            <!-- Other -->
+            <div class="tab-pane fade" id="other" role="tabpanel" aria-labelledby="other-tab">
+                <div class="row">
+                    {% for product in products if product.category not in ['Laptops', 'Smartphones', 'Headphones', 'Tablets'] %}
+                        <div class="col-md-3">
+                            <div class="card mb-4">
+                                <div class="img-container" style="overflow: hidden; width: 100%; height: 0; padding-top: 56.1%; position: relative;">
+                                    <img src="{{ product.image_url }}" class="card-img-top" alt="{{ product.name }}" style="position: absolute; top: 50%; left: 50%; width: auto; height: 100%; transform: translate(-50%, -50%);">
+                                </div>
+                                <div class="card-body text-center">
+                                    <h5 class="card-title">{{ product.name }}</h5>
+                                    <p class="card-text">{{ product.price }}€</p>
+                                    <a href="{{ url_for('product', product_id=product.id) }}" class="btn btn-primary">See More</a>
+                                </div>
+                            </div>
+                        </div>
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}

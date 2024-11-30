@@ -1,0 +1,24 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Display Image</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+</head>
+<body>
+    <h1>Uploaded Image</h1>
+    <div class="image-container">
+        <img src="{{ url_for('static', filename='uploads/' + filename) }}" alt="Uploaded Image">
+    </div>
+    <h2>Color Percentages</h2>
+    {% for color, percentage in color_percentages %}
+    <div class="color-box" onclick="copyToClipboard('{{ color }}')">
+        <div class="color-rectangle" style="background-color: {{ color }};"></div>
+        <span class="color-info">{{ color }} - {{ percentage }}%</span>
+    </div>
+    {% endfor %}
+    <div id="notification" class="notification"></div>
+    <script src="{{ url_for('static', filename='js/scripts.js') }}"></script>
+</body>
+</html>

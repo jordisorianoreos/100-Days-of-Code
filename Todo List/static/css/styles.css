@@ -1,0 +1,89 @@
+body {
+    background: #5597cf;
+    font-family: "SansSerif", sans-serif;
+}
+
+h1, h2 {
+    color: #FFFFFF;
+    font-family: "Tahoma B", sans-serif;
+    font-weight: 400;
+    font-size: 5rem;
+}
+
+h4 {
+    color: #FFFFFF;
+    margin-top: 1rem;
+}
+
+.todo-form {
+    background: #2D9596;
+}
+
+.btn {
+    background-color: #2b4f67;
+}
+
+.modal-content {
+    background-color: #2D9596;
+}
+
+.navbar-color {
+    background: #244865;
+}
+
+.error {
+    color: red;
+}
+
+.description {
+    background-color: #496989;
+}
+
+.content-wrapper {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+.footer {
+    margin-top: auto;
+    width: 100%;
+}
+
+.header-space {
+    margin-top: 50px;
+}
+
+.column-title {
+    color: white;
+    font-size: 35px;
+    text-align: center;
+    margin-bottom: 15px;
+}
+
+.form-container {
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.list-group {
+    font-size: 18px;
+}
+
+.header-space {
+    margin-top: 50px;
+}
+
+.arrow-icon, .delete-icon {
+    cursor: pointer;
+    margin-top: 3px;
+}
+
+.button-delete-all {
+    width: 50%;
+}
+
+.custom-hr {
+    margin-top: 40px;
+    margin-bottom: 10px;
+}

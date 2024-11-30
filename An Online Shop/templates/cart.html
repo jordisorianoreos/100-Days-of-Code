@@ -1,0 +1,137 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class="container my-5">
+    <h1>Your Cart</h1>
+    {% if customer_products %}
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>Image</th>
+                    <th>Product</th>
+                    <th>Quantity</th>
+                    <th>Price</th>
+                    <th>Total</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% set total_price = 0 %}
+                {% for item in customer_products %}
+                    {% set item_total = item.quantity * item.product.price %}
+                    <tr>
+                        <td>
+                            <img src="{{ item.product.image_url }}" alt="{{ item.product.name }}" style="width: 50px; height: 50px;">
+                        </td>
+                        <td>{{ item.product.name }}</td>
+                        <td>
+                            <div class="input-group">
+                                <button class="btn btn-outline-secondary" type="button" onclick="updateQuantity('{{ item.id }}', -1)">-</button>
+                                <input type="number" class="form-control text-center quantity-input" value="{{ item.quantity }}" min="1" max="{{ item.product.stock }}" id="quantity-{{ item.id }}" onchange="updateTotal('{{ item.id }}')" style="width: 40px;">
+                                <button class="btn btn-outline-secondary" type="button" onclick="updateQuantity('{{ item.id }}', 1)">+</button>
+                            </div>
+                        </td>
+                        <td>{{ item.product.price | round(2) }}€</td>
+                        <td id="total-{{ item.id }}">{{ item_total | round(2) }}€</td>
+                        <td>
+                            <button class="btn btn-danger" onclick="removeItem('{{ item.id }}')">Remove</button>
+                        </td>
+                    </tr>
+                    {% set total_price = total_price + item_total %}
+                {% endfor %}
+            </tbody>
+        </table>
+        <br>
+        <div class="d-flex justify-content-end">
+            <h3>Total: <span id="grand-total">{{ total_price | round(2) }}€</span></h3>
+        </div>
+        <div class="d-flex justify-content-end">
+            <button id="checkout-button" class="btn btn-success">Checkout</button>
+        </div>
+    {% else %}
+        <p>Your cart is empty.</p>
+    {% endif %}
+</div>
+
+<style>
+    .quantity-input {
+        width: 40px;
+        -moz-appearance: textfield;
+    }
+
+    .quantity-input::-webkit-inner-spin-button,
+    .quantity-input::-webkit-outer-spin-button {
+        -webkit-appearance: none;
+        margin: 0;
+    }
+</style>
+
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        updateGrandTotal();
+    });
+
+    document.getElementById('checkout-button').addEventListener('click', function() {
+        fetch('/checkout', {
+            method: 'POST',
+        })
+        .then(response => {
+            if (response.ok) {
+                alert('Checkout successful!');
+                location.reload();
+            } else {
+                alert('Checkout failed. Please try again.');
+            }
+        })
+        .catch(error => console.error('Error:', error));
+    });
+
+    function updateQuantity(itemId, change) {
+        const quantityInput = document.getElementById(`quantity-${itemId}`);
+        let currentQuantity = parseInt(quantityInput.value);
+        const newQuantity = currentQuantity + change;
+
+        if (newQuantity > 0 && newQuantity <= parseInt(quantityInput.max)) {
+            quantityInput.value = newQuantity;
+            updateTotal(itemId);
+        }
+    }
+
+    function updateTotal(itemId) {
+        const quantity = parseInt(document.getElementById(`quantity-${itemId}`).value);
+        const price = {{ customer_products[0].product.price | round(2) if customer_products else 0 }};
+        const totalElement = document.getElementById(`total-${itemId}`);
+        const newTotal = (quantity * price).toFixed(2);
+        totalElement.innerText = newTotal + '€';
+        updateGrandTotal();
+    }
+
+    function updateGrandTotal() {
+        let grandTotal = 0;
+        document.querySelectorAll('tbody tr').forEach(row => {
+            const total = parseFloat(row.querySelector('td[id^="total-"]').innerText);
+            grandTotal += total;
+        });
+        document.getElementById('grand-total').innerText = grandTotal.toFixed(2) + '€';
+    }
+
+    function removeItem(itemId) {
+        fetch('/remove-item', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/x-www-form-urlencoded',
+            },
+            body: new URLSearchParams({
+                'item_id': itemId
+            })
+        })
+        .then(response => {
+            if (response.ok) {
+                location.reload();
+            } else {
+                alert('Failed to remove item.');
+            }
+        })
+        .catch(error => console.error('Error:', error));
+    }
+</script>
+{% endblock %}

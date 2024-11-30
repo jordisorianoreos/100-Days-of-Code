@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class="container my-5">
+    <h1>Your Orders</h1>
+    {% if purchase_summary %}
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>Product</th>
+                    <th>Quantity</th>
+                    <th>Total Price (€)</th>
+                    <th>Purchase Date</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for product, details in purchase_summary.items() %}
+                    <tr>
+                        <td>{{ product }}</td>
+                        <td>{{ details.quantity }}</td>
+                        <td>{{ details.total_price | round(2) }}</td>
+                        <td>{{ details.purchase_date.strftime('%Y-%m-%d %H:%M:%S') }}</td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    {% else %}
+        <p>You have not made any purchases yet.</p>
+    {% endif %}
+</div>
+{% endblock %}

@@ -1,0 +1,74 @@
+{% extends "base.html" %}
+{% from 'bootstrap5/form.html' import render_form, render_field %}
+
+{% block body %}
+
+<div class="container header-space">
+    <div class="row">
+        <div class="col-md-4">
+            <div class="column-title">To Do</div>
+            <div class="list-group">
+                {% for todo in todos if todo.status == 'To Do' %}
+                <label class="list-group-item d-flex gap-2">
+                    <div class="todo-item" data-id="{{ todo.id }}" data-status="To Do" onclick="updateStatus(this)">
+                        <i class="fas fa-arrow-circle-right arrow-icon"></i>
+                        <span>
+                            {{ todo.todo_item }}
+                        </span>
+                    </div>
+                    <i class="fas fa-times delete-icon ms-auto" data-id="{{ todo.id }}" onclick="deleteTodo(this)"></i>
+                </label>
+                {% endfor %}
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="column-title">Doing</div>
+            <div class="list-group">
+                {% for todo in todos if todo.status == 'Doing' %}
+                <label class="list-group-item d-flex gap-2">
+                    <input class="form-check-input flex-shrink-0" type="checkbox" value="{{ todo.id }}" data-status="Doing" onchange="updateStatus(this)">
+                    <span>
+                        {{ todo.todo_item }}
+                    </span>
+                    <i class="fas fa-times delete-icon ms-auto" data-id="{{ todo.id }}" onclick="deleteTodo(this)"></i>
+                </label>
+                {% endfor %}
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="column-title">Done</div>
+            <div class="list-group">
+                {% for todo in todos if todo.status == 'Done' %}
+                <label class="list-group-item d-flex gap-2">
+                    <input class="form-check-input flex-shrink-0" type="checkbox" value="{{ todo.id }}" data-status="Done" checked onchange="updateStatus(this)">
+                    <span>
+                        {{ todo.todo_item }}
+                    </span>
+                    <i class="fas fa-times delete-icon ms-auto" data-id="{{ todo.id }}" onclick="deleteTodo(this)"></i>
+                </label>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+
+    <hr class="custom-hr">
+
+    <div class="row mt-4">
+        <div class="col-md-12">
+            <h4 class="text-center">Add New To-do</h4>
+            <div class="form-container">
+                <form method="POST" action="{{ url_for('mytodo') }}">
+                    {{ render_form(form) }}
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="text-center my-5">
+    <button class="btn btn-danger clear-all-btn" style="width: 200px;" onclick="clearAllTodos()">Clear All To-Dos</button>
+</div>
+
+<script src="{{ url_for('static', filename='js/script.js') }}"></script>
+
+{% endblock %}
