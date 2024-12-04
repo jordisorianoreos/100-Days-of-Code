@@ -25,7 +25,7 @@ The **Disappearing Text App** is a unique writing application designed to encour
 ## 🛠️ Technologies Used
 - **Programming Language**: Python.
 - **GUI**: Tkinter for building the interface.
-- **Sound Effects**: `pygame` library (or similar) to handle audio playback.
+- **Sound Effects**: `pygame` library to handle audio playback.
 
 ## 🚀 Lessons Learned
 1. **Synchronizing Events**: Managing the `after` functions in Tkinter to coordinate text deletion and sound playback without errors was a valuable learning experience.
