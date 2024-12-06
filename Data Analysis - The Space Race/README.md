@@ -102,7 +102,7 @@ This dataset was scraped from [NextSpaceFlight.com](https://nextspaceflight.com/
    ```bash
    pip install -r requirements.txt
    ```
-4. Upgrade iso3166 and Plotly (if using Google Colab):
+4. Install iso3166 and upgrade Plotly (if using Google Colab):
   ```bash
   pip install iso3166
   pip install --upgrade plotly
