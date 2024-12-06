@@ -5,19 +5,19 @@ This dataset was scraped from [NextSpaceFlight.com](https://nextspaceflight.com/
 
 ---
 
-# 🛠️ Steps in Analysis
+## 🛠️ Steps in Analysis
 
-## Data Exploration
+### Data Exploration
 - Inspect the shape of the dataset, column names, and data types.
 - Check for missing values or duplicates.
 
-## Data Cleaning
+### Data Cleaning
 - Drop junk columns and handle missing values in crucial columns (e.g., `Price` and `Date`).
 - Convert price values to numeric and parse dates correctly.
 
 ---
 
-# 📈 Key Analyses and Visualizations
+## 📈 Key Analyses and Visualizations
 
 ### Number of Launches per Company
 - A horizontal bar chart showing the number of launches by each organisation.
@@ -46,7 +46,7 @@ This dataset was scraped from [NextSpaceFlight.com](https://nextspaceflight.com/
 
 ---
 
-# 📅 Time Series Analyses
+## 📅 Time Series Analyses
 
 ### Number of Launches Over Time
 - A bar chart of launches year-by-year.
@@ -60,7 +60,7 @@ This dataset was scraped from [NextSpaceFlight.com](https://nextspaceflight.com/
 
 ---
 
-# 🛰️ Space Race Insights
+## 🛰️ Space Race Insights
 
 ### Cold War Space Race: USA vs USSR
 - **Pie Chart:** Comparing the total number of launches by the USA and USSR during the Cold War (up to 1991).
@@ -70,7 +70,7 @@ This dataset was scraped from [NextSpaceFlight.com](https://nextspaceflight.com/
 
 ---
 
-# 🌍 Global Space Trends
+## 🌍 Global Space Trends
 
 ### Leading Countries
 - **Year-by-Year:** A table showing which country had the most launches each year (total and successful).
@@ -80,18 +80,15 @@ This dataset was scraped from [NextSpaceFlight.com](https://nextspaceflight.com/
 
 ---
 
-# 🎨 Visual Examples
+## 🎨 Visual Examples
 - Choropleth maps, pie charts, sunburst charts, bar plots, and line charts demonstrate historical trends and country-specific insights.
 - Custom color palettes and legends improve interpretability.
 
 ---
 
-# 🚀 Summary
+## 🚀 Summary
 - The analysis spans decades of space exploration, showcasing trends in launch costs, organisational activity, and success rates.
 - The Cold War rivalry between the USA and USSR is prominently highlighted, along with the evolution of private and national space programs.
-
----
-
 ## 📂 How to Run the Project
 1. Clone the repository:
    ```bash
