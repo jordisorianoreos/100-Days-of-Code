@@ -98,7 +98,7 @@ This dataset was scraped from [NextSpaceFlight.com](https://nextspaceflight.com/
    ```bash
    cd "Data Analysis - The Space Race"
    ```
-3. Install dependencies:
+3. Install dependencies (if doing locally):
    ```bash
    pip install -r requirements.txt
    ```
