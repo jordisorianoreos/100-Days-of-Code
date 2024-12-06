@@ -107,7 +107,7 @@ This dataset was scraped from [NextSpaceFlight.com](https://nextspaceflight.com/
   pip install iso3166
   pip install --upgrade plotly
   ```
-5. Run the code cells in main.ipynb:
+5. Run the code cells in `main.ipynb`:
 
 ---
 
