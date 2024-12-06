@@ -17,16 +17,18 @@ In this repository, you will find some of the most notable projects I developed 
 1. **🛍️ An Online Shop**: A basic online store with shopping cart and product management functionalities.
 2. **🎮 Breakout Game**: An interactive game where you break bricks with a ball, built using Turtle Graphics.
 3. **🌐 Cafe and Wifi Website**: A responsive website to find cafes with good WiFi, built with Flask and HTML/CSS.
-4. **✏️ Disappearing Text Writing App**: A creative writing app that deletes text if you stop typing for a while.
-5. **🎨 Image Colour Palette Generator**: Generates a color palette from any image.
-6. **💧 Image Watermarking Desktop App**: A desktop application to add watermarks to your images.
-7. **📖 PDF to Audiobook Converter**: Converts PDF files into audiobooks using text-to-speech technology.
-8. **🚀 Space Invaders**: A recreation of the classic arcade game.
-9. **🔡 Text to Morse Code Converter**: Converts text into Morse code.
-10. **❌⭕ Tic Tac Toe**: The classic tic-tac-toe game.
-11. **✅ Todo List**: An interactive to-do list with options to add, remove, and mark tasks as complete.
-12. **⌨️ Typing Speed Test**: Test your typing skills by measuring your speed and accuracy.
-13. **🤖 WallaBot**: An automated bot to facilitate second-hand product purchases.
+4. **🚀 Data Analysis - The Space Race**: A deep dive into global space missions, costs, and trends over time.
+5. **🚔 Data Analysis - Deaths involving Police in EEUU**: *Coming soon...*
+6. **✏️ Disappearing Text Writing App**: A creative writing app that deletes text if you stop typing for a while.
+7. **🎨 Image Colour Palette Generator**: Generates a color palette from any image.
+8. **💧 Image Watermarking Desktop App**: A desktop application to add watermarks to your images.
+9. **📖 PDF to Audiobook Converter**: Converts PDF files into audiobooks using text-to-speech technology.
+10. **👾 Space Invaders**: A recreation of the classic arcade game.
+11. **🔡 Text to Morse Code Converter**: Converts text into Morse code.
+12. **❌⭕ Tic Tac Toe**: The classic tic-tac-toe game.
+13. **✅ Todo List**: An interactive to-do list with options to add, remove, and mark tasks as complete.
+14. **⌨️ Typing Speed Test**: Test your typing skills by measuring your speed and accuracy.
+15. **🤖 WallaBot**: An automated bot to facilitate second-hand product purchases.
 
 Each folder includes:
 - Project source code.
