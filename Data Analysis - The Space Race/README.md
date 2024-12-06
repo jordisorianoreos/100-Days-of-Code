@@ -102,12 +102,12 @@ This dataset was scraped from [NextSpaceFlight.com](https://nextspaceflight.com/
    ```bash
    pip install -r requirements.txt
    ```
-3.1. Upgrade iso3166 and Plotly (if using Google Colab):
+4. Upgrade iso3166 and Plotly (if using Google Colab):
   ```bash
   pip install iso3166
   pip install --upgrade plotly
   ```
-4. Run the code cells in main.ipynb:
+5. Run the code cells in main.ipynb:
 
 ---
 
