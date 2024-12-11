@@ -44,7 +44,7 @@ Detailed results can be found in the [report](./report.pdf) or by running the an
 1. Clone the repository:
    ```bash
    git clone https://github.com/jordisorianoreos/100-Days-of-Code.git
-   cd police-deaths-analysis
+   cd "Data Analysis - Deaths involving Police in EEUU"
    ```
 2. Install dependencies (if doing it locally):
    ```bash
