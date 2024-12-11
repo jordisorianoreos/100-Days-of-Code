@@ -1,30 +1,19 @@
-# Deaths Involving Police in the U.S.
+# 🚨 Deaths Involving Police in the U.S.
 
 This project aims to analyze data on deaths involving police in the United States, exploring trends, racial disparities, and socioeconomic impacts. The analysis leverages publicly available data to provide insights into the systemic issues surrounding these incidents.
 
-## Table of Contents
-
-- [Background](#background)
-- [Objectives](#objectives)
-- [Data Sources](#data-sources)
-- [Methodology](#methodology)
-- [Results](#results)
-- [How to Run](#how-to-run)
-- [Contributing](#contributing)
-- [License](#license)
-
-## Background
+## 📖 Background
 
 Police-related fatalities have been a topic of significant public interest and debate in the U.S. This project seeks to provide a data-driven perspective on this issue, examining patterns over time and across demographic groups.
 
-## Objectives
+## 🎯 Objectives
 
 1. Identify trends in police-related fatalities over time.
 2. Analyze racial and socioeconomic disparities in these incidents.
 3. Highlight geographic regions with higher rates of such events.
 4. Provide actionable insights for policy-making and advocacy.
 
-## Data Sources
+## 📊 Data Sources
 
 This analysis uses data from:
 
@@ -32,7 +21,7 @@ This analysis uses data from:
 - [Mapping Police Violence](https://mappingpoliceviolence.org/)
 - U.S. Census Bureau for demographic and socioeconomic data.
 
-## Methodology
+## 🛠️ Methodology
 
 1. **Data Cleaning**: Standardized and cleaned the datasets for consistency.
 2. **Exploratory Data Analysis (EDA)**: Identified trends and outliers.
@@ -40,7 +29,7 @@ This analysis uses data from:
 4. **Statistical Analysis**: Used regression models to assess correlations between fatalities and socioeconomic factors.
 5. **Geospatial Analysis**: Mapped incidents to visualize regional disparities.
 
-## Results
+## 📈 Results
 
 The key findings include:
 
@@ -50,11 +39,11 @@ The key findings include:
 
 Detailed results can be found in the [report](./report.pdf) or by running the analysis.
 
-## How to Run
+## ⚙️ How to Run
 
 1. Clone the repository:
    ```bash
-   git clone https://github.com/yourusername/police-deaths-analysis.git
+   git clone https://github.com/jordisorianoreos/100-Days-of-Code.git
    cd police-deaths-analysis
    ```
 2. Install dependencies (if doing it locally):
@@ -65,8 +54,6 @@ Detailed results can be found in the [report](./report.pdf) or by running the an
    ```bash
    python main.py
    ```
-
----
 
 ## 📧 Contact
 
