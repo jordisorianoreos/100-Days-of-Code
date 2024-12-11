@@ -89,6 +89,9 @@ This dataset was scraped from [NextSpaceFlight.com](https://nextspaceflight.com/
 ## 🚀 Summary
 - The analysis spans decades of space exploration, showcasing trends in launch costs, organisational activity, and success rates.
 - The Cold War rivalry between the USA and USSR is prominently highlighted, along with the evolution of private and national space programs.
+
+---
+
 ## 📂 How to Run the Project
 1. Clone the repository:
    ```bash
